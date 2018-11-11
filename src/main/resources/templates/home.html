@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/static/bootstrap.min.css" th:href="@{/bootstrap.min.css}" />
+    <title>Home Page</title>
+    <meta charset="utf-8"/>
+</head>
+<body style="background-color: #d5d5d5">
+<div th:replace="fragments/header :: header">
+</div>
+<div class="container-fluid">
+    <div class="hero-unit m-5">
+        <h1><span th:text="${appName}"></span></h1>
+        <p>
+            Keep Your Revenues and Expenses Under Control!
+        </p>
+        <p>
+            <a th:href="@{/transaction}" class="btn btn-large btn-success">Start</a>
+        </p>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>
