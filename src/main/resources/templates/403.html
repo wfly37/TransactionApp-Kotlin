@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/static/bootstrap.min.css" th:href="@{/bootstrap.min.css}" />
+    <title>Access Denied</title>
+</head>
+
+<body style="background-color: #d5d5d5">
+  <div th:replace="fragments/header :: header"></div>
+  <div class="container-fluid">
+    <h3 th:if="${message != null}" th:utext="${message}" style="color: red;"></h3>
+    <div th:if="${user != null}" th:utext="${user}"></div>
+</div>
+</body>
+
+</html>
