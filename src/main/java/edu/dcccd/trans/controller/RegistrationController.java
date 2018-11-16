@@ -31,21 +31,16 @@ public class RegistrationController {
   public String processRegistration( RegistrationForm form, Model model) {
 
       if(!form.getPassword().equals(form.getConfirm())) {
-          //model.addAttribute("user", form.getUsername());
           model.addAttribute("message", "Passwords is not match.");
           return "403";
       }
       User user = userRepo.findByUsername(form.getUsername());
       if(user != null) {
-          //model.addAttribute("user", form.getUsername());
           model.addAttribute("message","User already registered.");
           return "403";
       }
-      System.out.println(form.getUsername() + "/" + form.getPassword());
       user = userRepo.save(form.toUser(passwordEncoder));
-      userRepo.findAll().forEach(System.out::println);
       roleRepo.save(new Role("ROLE_USER", user.getId()));
-      roleRepo.findAll().forEach(System.out::println);
       return "redirect:/login";
   }
 
