@@ -11,13 +11,17 @@ buildscript {
 }
 
 apply plugin: 'java'
-apply plugin: 'eclipse'
+apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
 group = 'edu.dcccd'
 version = '0.0.1'
 sourceCompatibility = 10
+
+jar {
+    baseName = 'trans'
+}
 
 repositories {
     mavenCentral()
@@ -34,4 +38,6 @@ dependencies {
     implementation('org.projectlombok:lombok')
     runtimeOnly('com.h2database:h2')
     testImplementation('org.springframework.boot:spring-boot-starter-test')
+    compile 'com.heroku.sdk:heroku-deploy:2.0.6'
 }
+
