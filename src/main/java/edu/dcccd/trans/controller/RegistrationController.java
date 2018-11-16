@@ -41,11 +41,8 @@ public class RegistrationController {
           model.addAttribute("message","User already registered.");
           return "403";
       }
-      System.out.println(form.getUsername() + "/" + form.getPassword());
       user = userRepo.save(form.toUser(passwordEncoder));
-      userRepo.findAll().forEach(System.out::println);
       roleRepo.save(new Role("ROLE_USER", user.getId()));
-      roleRepo.findAll().forEach(System.out::println);
       return "redirect:/login";
   }
 
