@@ -21,6 +21,10 @@
                 <a class="nav nav-link active"
                    th:if="${#request.userPrincipal != null}" th:href="@{/logout}">Logout</a>
             </li>
+            <li class="nav navbar-nav">
+                <a class="nav navbar-link active"
+                   href="/joke">Joke</a>
+            </li>
         </ul>
     </div>
 </nav>

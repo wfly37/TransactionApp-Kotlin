@@ -33,7 +33,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             throw new UsernameNotFoundException("User " + userName + " was not found in the database");
         }
 
-        System.out.println("Found User: " + user);
+//        System.out.println("Found User: " + user);
 
         // [ROLE_USER, ROLE_ADMIN,..]
         List<Role> roleNames = roleRepository.findByUserId(user.getId());
