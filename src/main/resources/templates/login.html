@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="/static/bootstrap.min.css" th:href="@{/bootstrap.min.css}" />
+    <meta charset="utf-8"/>
+</head>
+<body style="background-color: #d5d5d5">
+<div th:replace="fragments/header :: header"></div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+            <h2>Login</h2>
+        </div>
+    </div>
+
+<!-- /login?error=true -->
+<div th:if="${#request.getParameter('error') == 'true'}"
+     style="color:red;margin:10px 0px;">
+    Login Failed!!!<br />
+    Reason :
+    <span th:if="${#session!= null and #session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION') != null}"
+          th:utext="${#session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION').message}">
+                Static summary
+         </span>
+
+</div>
+
+    <div class="row">
+        <div class="col-md-4">
+              <h5>Enter user name and password:</h5>
+        </div>
+    </div>
+        <form name='f' th:action="@{/j_spring_security_check}" method='POST'>
+                <div class="row form-group">
+                    <div class="col-md-1">
+                       <label>User Name:</label>
+                    </div>
+                    <div class="col-md-1">
+                        <input type='text' name='username' value=''>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-1">
+                        <label>Password:</label>
+                    </div>
+                    <div class="col-md-1">
+                        <input type='password' name='password' />
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-2">
+                         <input name="submit" type="submit" value="submit" class="btn btn-primary"/>
+                    </div>
+                </div>
+        </form>
+
+        <br>
+        Username/Password:
+        <ul>
+            <li>bill/password123 (user, admin)</li>
+        </ul>
+</div>
+</body>
+
+</html>
