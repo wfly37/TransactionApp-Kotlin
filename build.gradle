@@ -17,7 +17,17 @@ apply plugin: 'io.spring.dependency-management'
 
 group = 'edu.dcccd'
 version = '0.0.1'
-sourceCompatibility = 10
+
+compileJava {
+    sourceCompatibility = 11
+    targetCompatibility = 11
+}
+
+compileTestJava {
+    sourceCompatibility = 11
+    targetCompatibility = 11
+    options.compilerArgs += '-parameters'
+}
 
 repositories {
     mavenCentral()
