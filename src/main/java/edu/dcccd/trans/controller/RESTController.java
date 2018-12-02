@@ -19,3 +19,4 @@ public class RESTController {
         return jokeService.getJoke("Craig", "Walls");
     }
  }
+}

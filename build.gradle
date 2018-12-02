@@ -11,14 +11,17 @@ buildscript {
 }
 
 apply plugin: 'java'
-apply plugin: 'eclipse'
+apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
 group = 'edu.dcccd'
 version = '0.0.1'
+sourceCompatibility = 11
 
-sourceCompatibility = 10
+jar {
+    baseName = 'trans'
+}
 
 repositories {
     mavenCentral()
@@ -28,11 +31,12 @@ repositories {
 dependencies {
     implementation('org.springframework.boot:spring-boot-starter-thymeleaf')
     implementation('org.springframework.boot:spring-boot-starter-web')
+    implementation('org.springframework.boot:spring-boot-starter-security')
     implementation('org.springframework.boot:spring-boot-starter-data-jpa')
     implementation('org.springframework.boot:spring-boot-starter-data-rest')
-    implementation('org.springframework.boot:spring-boot-starter-security')
     runtimeOnly('org.springframework.boot:spring-boot-devtools')
     implementation('org.projectlombok:lombok')
     runtimeOnly('com.h2database:h2')
     testImplementation('org.springframework.boot:spring-boot-starter-test')
+    compile 'com.heroku.sdk:heroku-deploy:2.0.6'
 }
