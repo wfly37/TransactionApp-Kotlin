@@ -18,5 +18,4 @@ public class RESTController {
     public String getJoke() throws Exception {
         return jokeService.getJoke("Craig", "Walls");
     }
- }
 }
