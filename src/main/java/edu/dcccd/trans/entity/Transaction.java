@@ -46,4 +46,8 @@ public class Transaction {
         LocalDateTime now = LocalDateTime.now();
         return now.format(DateTimeFormatter.ofLocalizedTime(FormatStyle.MEDIUM));
     }
+
+    public void setTime( String time ) {
+        this.time = time;
+    }
 }

@@ -5,5 +5,9 @@ import lombok.*;
 @Data
 public class Value {
     private int id;
-    @Getter private String joke;
+    private String joke;
+
+    public String getJoke() {
+        return joke;
+    }
 }

@@ -19,4 +19,12 @@ public class Role {
         this.role = role;
         this.userId = userId;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getRole() {
+        return role;
+    }
 }

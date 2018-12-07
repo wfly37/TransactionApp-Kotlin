@@ -19,4 +19,16 @@ public class User {
         this.username = username;
         this.encryptedPassword = encode;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getEncryptedPassword() {
+        return encryptedPassword;
+    }
 }

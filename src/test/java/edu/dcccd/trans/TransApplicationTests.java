@@ -2,19 +2,21 @@ package edu.dcccd.trans;
 
 import edu.dcccd.trans.entity.Transaction;
 import edu.dcccd.trans.repository.TransactionRepository;
-import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.logging.Logger;
+
 import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@Slf4j
+
 public class TransApplicationTests {
+    Logger log = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
     @Autowired
     TransactionRepository repository;
 
@@ -25,7 +27,7 @@ public class TransApplicationTests {
     @Test
     public void testDBcount() {
         long revs = repository.count();
-        assertEquals(4l, revs);
+        assertEquals(4L, revs);
     }
 
     @Test
