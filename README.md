@@ -1,1 +1,1 @@
-# TransactionApp - Lesson 12 - Spring Data
+# TransactionApp - Lesson 15 - Deploy Spring App to Heroku
