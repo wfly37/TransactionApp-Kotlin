@@ -1,1 +1,1 @@
-# TransactionApp - Lesson 15 - Deploy Spring App to Heroku
+# TransactionApp - Lesson 15 - Deploy Kotlin Spring App to Heroku
