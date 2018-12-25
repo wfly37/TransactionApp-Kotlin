@@ -1,5 +1,6 @@
 buildscript {
     ext {
+        kotlinVersion = '1.3.11'
         springBootVersion = '2.1.1.RELEASE'
     }
     repositories {
@@ -7,17 +8,34 @@ buildscript {
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}")
+        classpath("org.jetbrains.kotlin:kotlin-allopen:${kotlinVersion}")
+    }
+}
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.3.11'
+}
+compileKotlin {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+compileTestKotlin {
+    kotlinOptions {
+        jvmTarget = "1.8"
     }
 }
 
 apply plugin: 'java'
+apply plugin: 'kotlin'
+apply plugin: 'kotlin-spring'
 apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
 group = 'edu.dcccd'
 version = '0.0.1'
-sourceCompatibility = 10
+sourceCompatibility = 11
 
 jar {
     baseName = 'trans'
@@ -35,8 +53,10 @@ dependencies {
     implementation('org.springframework.boot:spring-boot-starter-data-jpa')
     implementation('org.springframework.boot:spring-boot-starter-data-rest')
     runtimeOnly('org.springframework.boot:spring-boot-devtools')
+    implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation('org.projectlombok:lombok:1.18.4')
     runtimeOnly('com.h2database:h2')
     testImplementation('org.springframework.boot:spring-boot-starter-test')
     compile 'com.heroku.sdk:heroku-deploy:2.0.6'
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 }
